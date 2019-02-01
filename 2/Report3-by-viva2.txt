@@ -1,0 +1,312 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Jul  7 21:35:47 2018
+# Process ID: 12012
+# Current directory: E:/fpga/final/final_phase2/final_phase2.runs/synth_1
+# Command line: vivado.exe -log sha_256_core.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sha_256_core.tcl
+# Log file: E:/fpga/final/final_phase2/final_phase2.runs/synth_1/sha_256_core.vds
+# Journal file: E:/fpga/final/final_phase2/final_phase2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source sha_256_core.tcl -notrace
+create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 278.508 ; gain = 51.859
+Command: synth_design -top sha_256_core -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8088 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 391.031 ; gain = 100.090
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'sha_256_core' [E:/fpga/final/final_phase2/final_phase2.srcs/sources_1/new/sha_256_core.vhd:21]
+	Parameter RESET_VALUE bound to: 1'b0 
+WARNING: [Synth 8-6014] Unused sequential element temp_reg was removed.  [E:/fpga/final/final_phase2/final_phase2.srcs/sources_1/new/sha_256_core.vhd:181]
+INFO: [Synth 8-256] done synthesizing module 'sha_256_core' (1#1) [E:/fpga/final/final_phase2/final_phase2.srcs/sources_1/new/sha_256_core.vhd:21]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 471.246 ; gain = 180.305
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 471.246 ; gain = 180.305
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1157-1
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 517.652 ; gain = 226.711
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'sha_256_core'
+INFO: [Synth 8-5545] ROM "T1" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "HV[0]" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "loop_counter" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "finished" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "next_state" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   reset |                             0000 |                             0000
+                    idle |                             0001 |                             0001
+                    read |                             0010 |                             0010
+             permutation |                             0011 |                             0011
+            compression1 |                             0100 |                             0100
+            compression2 |                             0101 |                             0101
+            compression3 |                             0110 |                             1000
+                    done |                             0111 |                             1001
+           compression2a |                             1000 |                             0110
+           compression2b |                             1001 |                             0111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'sha_256_core'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 592.988 ; gain = 302.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 11    
+	   3 Input     32 Bit       Adders := 1     
+	   4 Input     32 Bit       Adders := 48    
+	   5 Input     32 Bit       Adders := 2     
+	   2 Input     31 Bit       Adders := 2     
++---XORs : 
+	   3 Input     32 Bit         XORs := 99    
+	   4 Input     32 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 82    
+	               31 Bit    Registers := 2     
++---Muxes : 
+	  10 Input     32 Bit        Muxes := 16    
+	   2 Input     31 Bit        Muxes := 1     
+	  10 Input     31 Bit        Muxes := 2     
+	  15 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	  10 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module sha_256_core 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 11    
+	   3 Input     32 Bit       Adders := 1     
+	   4 Input     32 Bit       Adders := 48    
+	   5 Input     32 Bit       Adders := 2     
+	   2 Input     31 Bit       Adders := 2     
++---XORs : 
+	   3 Input     32 Bit         XORs := 99    
+	   4 Input     32 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 82    
+	               31 Bit    Registers := 2     
++---Muxes : 
+	  10 Input     32 Bit        Muxes := 16    
+	   2 Input     31 Bit        Muxes := 1     
+	  10 Input     31 Bit        Muxes := 2     
+	  15 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	  10 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "T1" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "HV[0]" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "loop_counter" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------+------------+---------------+----------------+
+|Module Name  | RTL Object | Depth x Width | Implemented As | 
++-------------+------------+---------------+----------------+
+|sha_256_core | K[0]       | 64x32         | LUT            | 
+|sha_256_core | K[0]       | 64x32         | LUT            | 
++-------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:46 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |   523|
+|3     |LUT1   |    33|
+|4     |LUT2   |  1166|
+|5     |LUT3   |  1072|
+|6     |LUT4   |  1234|
+|7     |LUT5   |  2032|
+|8     |LUT6   |  2888|
+|9     |MUXF7  |   256|
+|10    |MUXF8  |   128|
+|11    |FDCE   |    35|
+|12    |FDRE   |  2655|
+|13    |IBUF   |   546|
+|14    |OBUF   |   257|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       | 12826|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1061.211 ; gain = 770.270
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1061.211 ; gain = 770.270
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1061.211 ; gain = 770.270
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1453 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'sha_256_core' is not ideal for floorplanning, since the cellview 'sha_256_core' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+23 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:56 . Memory (MB): peak = 1061.211 ; gain = 782.703
+INFO: [Common 17-1381] The checkpoint 'E:/fpga/final/final_phase2/final_phase2.runs/synth_1/sha_256_core.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file sha_256_core_utilization_synth.rpt -pb sha_256_core_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.604 . Memory (MB): peak = 1061.211 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Jul  7 21:37:22 2018...
